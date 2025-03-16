@@ -1,0 +1,538 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>教程长文丨从零入门 C++ -
+    David 的小窝</title>
+<link rel="shortcut icon" href="https://DavidJYL.github.io/favicon.ico" />
+<link
+  href="https://testingcf.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css"
+  rel="stylesheet" />
+<link
+  rel="stylesheet"
+  href="https://npm.elemecdn.com/animate.css@3.7.2/animate.min.css" />
+<link
+  rel="stylesheet"
+  href="https://DavidJYL.github.io/media/css/tailwind.css" />
+<link rel="stylesheet" href="https://DavidJYL.github.io/styles/main.css" />
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="教程长文丨从零入门 C++ -
+    David 的小窝 - Atom Feed"
+  href="https://DavidJYL.github.io/atom.xml" />
+
+
+
+    <meta name="description" content="从零入门 C++
+
+
+作者：Yulin Jiang
+
+前言
+各位读者大家好，这篇文章在开始撰写时，作者是一位初二年级的学生，同时是一位才学习了两年 C++ 的「菜鸟」，但作者看到许多小白在刚入门时十分迷茫，只能摸索着前进，因而写下了此文，希..." />
+    <meta
+      property="og:title"
+      content="教程长文丨从零入门 C++ - David 的小窝" />
+    <meta property="og:description" content="从零入门 C++
+
+
+作者：Yulin Jiang
+
+前言
+各位读者大家好，这篇文章在开始撰写时，作者是一位初二年级的学生，同时是一位才学习了两年 C++ 的「菜鸟」，但作者看到许多小白在刚入门时十分迷茫，只能摸索着前进，因而写下了此文，希..." />
+    <meta property="og:type" content="articles" />
+    <meta property="og:url" content="https://DavidJYL.github.io/post/c++/" />
+    <meta
+      property="og:image"
+      content="https://DavidJYL.github.io/images/avatar.png" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:width" content="1200" />
+    <meta
+      name="twitter:title"
+      content="教程长文丨从零入门 C++ - David 的小窝" />
+    <meta name="twitter:description" content="从零入门 C++
+
+
+作者：Yulin Jiang
+
+前言
+各位读者大家好，这篇文章在开始撰写时，作者是一位初二年级的学生，同时是一位才学习了两年 C++ 的「菜鸟」，但作者看到许多小白在刚入门时十分迷茫，只能摸索着前进，因而写下了此文，希..." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://DavidJYL.github.io/post/c++/" />
+
+    <link
+      rel="stylesheet"
+      href="https://npm.elemecdn.com/photoswipe@4.1.3/dist/photoswipe.css" />
+    <link
+      rel="stylesheet"
+      href="https://npm.elemecdn.com/photoswipe@4.1.3/dist/default-skin/default-skin.css" />
+
+    
+    <link
+      rel="stylesheet"
+      href="https://DavidJYL.github.io/media/css/prism-synthwave84.css" />
+     
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+    
+  </head>
+
+  <body>
+    <div class="antialiased flex flex-col min-h-screen" id="app">
+      <a
+        href="https://DavidJYL.github.io"
+        class="fixed top-0 left-0 mt-4 bg-black text-white dark:text-gray-700 dark:bg-yellow-50 dark:hover:bg-black dark:hover:text-white inline-flex p-2 pl-8 hover:text-gray-700 hover:bg-yellow-50 font-bold z-10 transition-fast animated fadeInLeft">
+        David 的小窝
+      </a>
+      <div class="max-w-4xl w-full mx-auto">
+        <div
+          class="shadow-box bg-white dark:bg-gray-600 rounded-lg pt-32 md:pt-64 px-4 md:px-8 pb-8 animated fadeIn mb-8">
+          <h1
+            class="text-5xl font-semibold leading-normal pb-8 mb-8 border-b-8 border-gray-700">
+            教程长文丨从零入门 C++
+          </h1>
+          
+          <div class="mb-8 flex flex-wrap">
+            <div class="text-gray-400 text-sm mr-4">
+              2023-04-09 · 8 min read
+            </div>
+            
+            <a
+              href="https://DavidJYL.github.io/tag/program/"
+              class="text-gray-700 text-sm border-b-2 border-dotted border-gray-200 hover:border-gray-600 transition-all duration-100 inline-flex mr-2">
+              <i class="ri-hashtag"></i>
+              Program
+            </a>
+            
+            <a
+              href="https://DavidJYL.github.io/tag/Article/"
+              class="text-gray-700 text-sm border-b-2 border-dotted border-gray-200 hover:border-gray-600 transition-all duration-100 inline-flex mr-2">
+              <i class="ri-hashtag"></i>
+              Article
+            </a>
+            
+            <a
+              href="https://DavidJYL.github.io/tag/Technology/"
+              class="text-gray-700 text-sm border-b-2 border-dotted border-gray-200 hover:border-gray-600 transition-all duration-100 inline-flex mr-2">
+              <i class="ri-hashtag"></i>
+              Technology
+            </a>
+            
+          </div>
+          <div class="markdown mb-8" v-pre><h1 id="从零入门-c">从零入门 C++</h1>
+<!--more-->
+<blockquote>
+<p><strong>作者</strong>：Yulin Jiang</p>
+</blockquote>
+<h2 id="前言">前言</h2>
+<p>各位读者大家好，这篇文章在开始撰写时，作者是一位初二年级的学生，同时是一位才学习了两年 C++ 的「菜鸟」，但作者看到许多小白在刚入门时十分迷茫，只能摸索着前进，因而写下了此文，希望能给刚入门的小白提供一些帮助。</p>
+<p>我希望这篇文章是<strong>完整而详细</strong>的，尽管作者的水平也算不上高，如果不是这样，我对此表示十分抱歉，无论怎样，希望这篇文章能给你一些帮助。</p>
+<p>在开始阅读这篇文章之前，你要知道一些事：</p>
+<ul>
+<li>
+<p>这篇文章<s>大概</s>会讲的非常的细致，如果你觉得你已经掌握了相关内容，可以<strong>跳过</strong>相应章节；</p>
+</li>
+<li>
+<p>本文中所有有关系统的操作仅针对 <strong>「Windows」</strong> 系统，其他系统的使用者请参考其他文章；</p>
+</li>
+<li>
+<p>本文最多只涉及 <code>C++11</code> 的内容；</p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/LLLLLLZZZZZ/article/details/127405503">请打开文件扩展名</a>；</p>
+</li>
+</ul>
+<p>下面话不多说，让我们正式开始吧。</p>
+<h2 id="目录">目录</h2>
+<p><ul class="markdownIt-TOC">
+<li><a href="#%E4%BB%8E%E9%9B%B6%E5%85%A5%E9%97%A8-c">从零入门 C++</a>
+<ul>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%88%9D%E8%AF%86-c">第一章 初识 C++</a>
+<ul>
+<li><a href="#%E7%AC%AC%E4%B8%80%E8%8A%82-c-%E6%98%AF%E4%BB%80%E4%B9%88">第一节 C++ 是什么</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E8%8A%82-%E4%B8%8A%E6%89%8B-c">第二节 上手 C++</a>
+<ul>
+<li><a href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91%E5%99%A8">第一部分 安装编译器</a>
+<ul>
+<li><a href="#%E5%85%8D%E5%AE%89%E8%A3%85%E6%96%87%E4%BB%B6%E6%96%B9%E5%BC%8F">「免安装文件」方式</a></li>
+<li><a href="#%E5%AE%98%E6%96%B9%E5%AE%89%E8%A3%85%E5%B7%A5%E5%85%B7">「官方安装工具」</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86-%E6%B5%8B%E8%AF%95%E7%BC%96%E8%AF%91%E5%99%A8">第二部分 测试编译器</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86-%E5%AE%89%E8%A3%85%E7%BC%96%E8%BE%91%E5%99%A8">第三部分 安装编辑器</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p>
+<h2 id="第一章-初识-c">第一章 初识 C++</h2>
+<h3 id="第一节-c-是什么">第一节 C++ 是什么</h3>
+<p>要学习一门语言，先要对它有一定的了解，我先贴一段<a href="https://baike.baidu.com/item/C++/99272">百度百科</a>上的简介：</p>
+<blockquote>
+<p>C++是一种计算机高级程序设计语言，由<a href="https://baike.baidu.com/item/C%E8%AF%AD%E8%A8%80/105958">C语言</a>扩展升级而产生，最早于1979年由<a href="https://baike.baidu.com/item/%E6%9C%AC%E8%B4%BE%E5%B0%BC%C2%B7%E6%96%AF%E7%89%B9%E5%8A%B3%E6%96%AF%E7%89%B9%E5%8D%A2%E6%99%AE/10613051">本贾尼·斯特劳斯特卢普</a>在AT&amp;T贝尔工作室研发。</p>
+<p>C++既可以进行C语言的过程化<a href="https://baike.baidu.com/item/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/223952">程序设计</a>，又可以进行以抽象数据类型为特点的基于对象的程序设计，还可以进行以继承和多态为特点的面向对象的程序设计。C++擅长面向对象程序设计的同时，还可以进行基于过程的程序设计。</p>
+<p>C++拥有计算机运行的实用性特征，同时还致力于提高大规模程序的编程质量与程序设计语言的问题描述能力。</p>
+</blockquote>
+<p>简单总结下：</p>
+<ul>
+<li>
+<p>C++ 语言 是一门<strong>高级语言</strong>；</p>
+</li>
+<li>
+<p>C++ 语言 由 C语言 扩展而成；</p>
+</li>
+<li>
+<p>C++ 语言 特点：</p>
+<ul>
+<li>
+<p>可 <strong>面向过程/面向对象</strong> 编程；</p>
+</li>
+<li>
+<p>具有一定<strong>描述性</strong>。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>不过以上内容懂与不懂都无关紧要，对于一个初学者来说，这些东西都没用，相信大家在学习的过程中，会逐渐认识到「C++是什么」。</p>
+<p>需要知道的是，C++ 是一门<strong>编译执行</strong>的语言，也就是说，将源代码编译为可执行文件再执行，而不是像 Python 等<strong>翻译执行</strong>的语言，每一句代码在运行前都是没有影响的。</p>
+<h3 id="第二节-上手-c">第二节 上手 C++</h3>
+<p>既然 C++ 是一门编译执行的语言，就需要有<strong>编译器</strong>，如果你不想拿 NotePad（记事本）写代码的话，你还需要<strong>编辑器</strong>，下面我就带大家一步一步来做。</p>
+<h4 id="第一部分-安装编译器">第一部分 安装编译器</h4>
+<p>首先，还是先看下<strong>编译器</strong>是什么（内容删改自<a href="https://baike.baidu.com/item/%E7%BC%96%E8%AF%91%E5%99%A8/8853067">百度百科</a>）：</p>
+<blockquote>
+<p>简单讲，编译器就是将“一种语言（通常为高级语言）”翻译为“另一种语言（通常为 低级<a href="https://baike.baidu.com/item/%E8%AF%AD%E8%A8%80/72744">语言</a>）”的程序。一个现代编译器的主要工作流程：源代码 → <a href="https://baike.baidu.com/item/%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/9067800">预处理器</a> → 编译器 → <a href="https://baike.baidu.com/item/%E7%9B%AE%E6%A0%87%E4%BB%A3%E7%A0%81/9407934">目标代码</a> → <a href="https://baike.baidu.com/item/%E9%93%BE%E6%8E%A5%E5%99%A8/10853221">链接器</a> → 可执行<a href="https://baike.baidu.com/item/%E7%A8%8B%E5%BA%8F/71525">程序</a>。</p>
+<p>高级计算机语言便于人编写，阅读交流，维护。<a href="https://baike.baidu.com/item/%E6%9C%BA%E5%99%A8%E8%AF%AD%E8%A8%80/2019225">机器语言</a>是计算机能直接解读、运行的。编译器将汇编或高级计算机语言<a href="https://baike.baidu.com/item/%E6%BA%90%E7%A8%8B%E5%BA%8F/9752646">源程序</a>作为输入，翻译成目标语言机器代码的等价程序。</p>
+</blockquote>
+<p>简单来说，编译器的工作就是将「源代码」编译为「机器语言」，也就是转化为「可执行文件」，这样，才可以在相应的操作系统里直接运行。</p>
+<p>我个人推荐使用目前主流的编译器之一：<a href="https://baike.baidu.com/item/GNU/671972">GNU</a> 中的 <a href="https://baike.baidu.com/item/g++/8324824">g++</a>，如果你是用的是 Windows 操作系统，我推荐使用 <a href="https://baike.baidu.com/item/mingw/1777782">MinGW</a>，如果你使用的是其他操作系统，请自行参考其他文章进行配置。</p>
+<p>接下来简单讲解一下如何在 Windows 系统上配置 MinGW，总结来说，有两种方式：</p>
+<ul>
+<li>
+<p>其一，通过 <strong>「免安装文件」</strong> 方式，手动配置环境变量；</p>
+</li>
+<li>
+<p>其二，通过 <strong>「官方安装工具」</strong> 安装。</p>
+</li>
+</ul>
+<p>在此两种方式都做简单说明：</p>
+<h5 id="免安装文件方式">「免安装文件」方式</h5>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Q</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">Q.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">Q</span><span class="mord">.</span></span></span></span> 什么是「免安装文件」？</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">A.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord">.</span></span></span></span> GCC 等编译器的<strong>本体</strong>，即实现编译功能的部分，解压后直接将其最底层目录下的 <code>\bin</code> 目录的路径加入到环境变量的 <code>PATH</code> 变量中即可使用，具体可参考<a href="https://blog.csdn.net/XQC_KKK/article/details/124611111">该文章</a>安装。</p>
+<h5 id="官方安装工具">「官方安装工具」</h5>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Q</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">Q.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">Q</span><span class="mord">.</span></span></span></span> 什么是「官方安装工具」？</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">A.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord">.</span></span></span></span> 官方发布的安装工具，可以自动下载，帮助管理，但仍然需要手动配置环境变量，具体可参考<a href="https://blog.csdn.net/didi_ya/article/details/111240502">该文章</a>安装。</p>
+<ul>
+<li>Tip：<strong>在将路径加入到 <code>PATH</code> 环境变量中后，需要重启「Windows 资源管理器」（即 Explorer），如果仍然无效，则需重启设备。</strong></li>
+</ul>
+<h4 id="第二部分-测试编译器">第二部分 测试编译器</h4>
+<p>现在我们已经成功地在你的设备上安装好了 C++ 编译器，那么接下来进行一些简单的测试，看看编译器能否正常运行，同时也熟悉一下如何手动编译。</p>
+<p>首先我们先写两段简单的 C++ 代码用于测试，第一段是「Hello world」。</p>
+<p>文件取名为 <code>HelloWorld.cpp</code> 即可，内容如下（由于输出只有英文可使用任意编码，如试图输出中文却输出了乱码不要疑惑，后文会详细讲解）：</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; &quot;Hello world!&quot; &lt;&lt; std::endl;
+    std::getchar();
+    return 0;
+}
+</code></pre>
+<p>接下来打开 Windows 下的控制台 CMD 或者 PowerShell，有多种打开方式，可以打开开始菜单后搜索，其中搜索 “CMD” 应选择 “命令提示符”（通常来说是唯一匹配项），而搜索 “PowerShell” 则应选择 “Windows PowerShell”（不带后缀）。</p>
+<p>打开后先输入 &quot;g++&quot; 并按下回车（后同），如显示</p>
+<pre><code class="language-command">g++.exe: fatal error: no input files
+compilation terminated.
+</code></pre>
+<p>则说明 g++ 是可以使用的，大概率安装且配置成功了。若未显示以上文本，如显示</p>
+<pre><code class="language-command">'g++' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+</code></pre>
+<p>（在 CMD 中）或</p>
+<pre><code class="language-powershell">g++ : 无法将“g++”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请检查名称的拼写，如果包括路径，请确保路径正确，
+然后再试一次。
+所在位置 行:1 字符: 1
++ g++
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (g++:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+</code></pre>
+<p>（在 PowerShell 中）则说明配置失败，请检查自己的操作。</p>
+<p>然后执行以下命令（假设您的代码文件所在路径为 <code>D:\directory1\directory2\</code>）：</p>
+<pre><code class="language-commmand">C:\User\UserName&gt; D:
+D:\&gt; cd directory1\directory2
+D:\directory1\directory2&gt; g++ HelloWorld.cpp -o HelloWorld
+</code></pre>
+<p>那么就会在 <code>D:\directory1\directory2\</code> 目录下生成一个可执行文件（通常来说后缀为 <code>.exe</code>）</p>
+<p>接下来请在该目录下双击运行该文件或在命令行中继续输入：</p>
+<pre><code class="language-command">D:\directory1\directory2&gt; Helloworld
+</code></pre>
+<p>（在 CMD 中）或</p>
+<pre><code class="language-powershell">D:\directory1\directory2&gt; .\Helloworld
+</code></pre>
+<p>（在 PowerShell 中：PowerShell 默认不从当前位置加载命令）</p>
+<p>若输出 <code>Hello world!</code> 应当是运行成功了，否则请检查自己的操作。<br>
+示例程序中有一行 <code>std::getchar();</code>，用于在输出后再接受一个字符，输出后按下回车即可。</p>
+<p>接下来是第二段「A+B Problem」，文件名 <code>A+B.cpp</code>：</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+    int a, b;
+    std::cin &gt;&gt; a &gt;&gt; b;
+    std::cout &lt;&lt; a + b &lt;&lt; std::endl;
+    std::getchar();
+    return 0;
+}
+</code></pre>
+<p>同上操作（记得更改文件名），执行时输入两个整数（以空格或回车分隔）并按回车，若输出两数之和则正确运行，否则请检查自己的操作。</p>
+<p>到目前为止，编译器的安装与测试已经完成，下面我们来了解编辑器。</p>
+<h4 id="第三部分-安装编辑器">第三部分 安装编辑器</h4>
+<p><em><center> [ To be continued... ] </center></em></p>
+</div>
+          <!-- Share to Twitter, Weibo, Telegram -->
+          <div class="flex items-center">
+            <div class="mr-4 flex items-center">
+              <i class="ri-share-forward-line text-gray-500"></i>
+            </div>
+            <div
+              class="px-4 cursor-pointer text-blue-500 hover:bg-blue-100 dark:hover:bg-gray-600 inline-flex"
+              @click="shareToTwitter">
+              <i class="ri-twitter-line"></i>
+            </div>
+            <div
+              class="px-4 cursor-pointer text-red-500 hover:bg-red-100 dark:hover:bg-gray-600 inline-flex"
+              @click="shareToWeibo">
+              <i class="ri-weibo-line"></i>
+            </div>
+            <div
+              class="px-4 cursor-pointer text-indigo-500 hover:bg-indigo-100 dark:hover:bg-gray-600 inline-flex"
+              @click="shareToTelegram">
+              <i class="ri-telegram-line"></i>
+            </div>
+          </div>
+        </div>
+
+          <footer class="py-12 text-center px-4 md:px-0" v-pre>
+  <a href="https://github.com/DavidJYL" target="_blank">Github</a>丨<a href="https://gitee.com/Jiang-Yulin-David" target="_blank">Gitee</a>丨<a href="https://blog.csdn.net/qq_66162895" target="_blank">CSDN</a>丨<a href="https://atcoder.jp/users/jiangyulin_David" target="_blank">AtCoder</a>丨<a href="https://space.bilibili.com/1753083526" target="_blank">bilibili</a>
+</footer>
+
+      </div>
+
+      <!-- TOC Container -->
+      <div
+        class="fixed right-0 bottom-0 mb-16 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white dark:bg-gray-500 dark:text-gray-200 hover:shadow-lg transition-all animated fadeInRight"
+        @click="showToc = true">
+        <i class="ri-file-list-line"></i>
+      </div>
+
+      <div
+        class="fixed right-0 top-0 bottom-0 overflow-y-auto w-64 bg-white dark:bg-gray-800 p-4 border-l border-gray-100 dark:border-gray-600 z-10 transition-fast"
+        :class="{ '-mr-64': !showToc }">
+        <div class="flex mb-4 justify-end">
+          <div
+            class="w-8 h-8 inline-flex justify-center items-center rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 transition-fast"
+            @click="showToc = false">
+            <i class="ri-close-line text-lg"></i>
+          </div>
+        </div>
+        <div class="post-toc-container"><ul class="markdownIt-TOC">
+<li><a href="#%E4%BB%8E%E9%9B%B6%E5%85%A5%E9%97%A8-c">从零入门 C++</a>
+<ul>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%88%9D%E8%AF%86-c">第一章 初识 C++</a>
+<ul>
+<li><a href="#%E7%AC%AC%E4%B8%80%E8%8A%82-c-%E6%98%AF%E4%BB%80%E4%B9%88">第一节 C++ 是什么</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E8%8A%82-%E4%B8%8A%E6%89%8B-c">第二节 上手 C++</a>
+<ul>
+<li><a href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91%E5%99%A8">第一部分 安装编译器</a>
+<ul>
+<li><a href="#%E5%85%8D%E5%AE%89%E8%A3%85%E6%96%87%E4%BB%B6%E6%96%B9%E5%BC%8F">「免安装文件」方式</a></li>
+<li><a href="#%E5%AE%98%E6%96%B9%E5%AE%89%E8%A3%85%E5%B7%A5%E5%85%B7">「官方安装工具」</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86-%E6%B5%8B%E8%AF%95%E7%BC%96%E8%AF%91%E5%99%A8">第二部分 测试编译器</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86-%E5%AE%89%E8%A3%85%E7%BC%96%E8%BE%91%E5%99%A8">第三部分 安装编辑器</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+      </div>
+
+      <!-- Back to top -->
+      <div
+        class="fixed right-0 bottom-0 mb-4 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white hover:shadow-lg transition-all dark:bg-gray-500 dark:text-gray-200"
+        @click="backToUp"
+        v-show="scrolled">
+        <i class="ri-arrow-up-line"></i>
+      </div>
+    </div>
+
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- Background of PhotoSwipe.
+        It's a separate element as animating opacity is faster than rgba(). -->
+  <div class="pswp__bg"></div>
+  <!-- Slides wrapper with overflow:hidden. -->
+  <div class="pswp__scroll-wrap">
+    <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar">
+        <!--  Controls are self-explanatory. Order can be changed. -->
+        <div class="pswp__counter"></div>
+        <button
+          class="pswp__button pswp__button--close"
+          title="Close (Esc)"></button>
+        <button
+          class="pswp__button pswp__button--fs"
+          title="Toggle fullscreen"></button>
+        <button
+          class="pswp__button pswp__button--zoom"
+          title="Zoom in/out"></button>
+        <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+        <!-- element will get class pswp__preloader--active when preloader is running -->
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+        <div class="pswp__share-tooltip"></div>
+      </div>
+      <button
+        class="pswp__button pswp__button--arrow--left"
+        title="Previous (arrow left)"></button>
+      <button
+        class="pswp__button pswp__button--arrow--right"
+        title="Next (arrow right)"></button>
+      <div class="pswp__caption">
+        <div class="pswp__caption__center"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <script src="https://npm.elemecdn.com/vue@2.7.14/dist/vue.min.js"></script>
+    <script src="https://DavidJYL.github.io/media/scripts/main.js"></script>
+
+    <!-- Code Highlight -->
+    
+    <script src="https://DavidJYL.github.io/media/prism.js"></script>
+    <script>
+      Prism.highlightAll()
+    </script>
+    
+
+    <script src="https://npm.elemecdn.com/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+    <script src="https://npm.elemecdn.com/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+    <script>
+      //拿到预览框架，也就是上面的html代码
+      var pswpElement = document.querySelectorAll('.pswp')[0]
+      //定义图片数组变量
+      var imgitems
+      /**
+       * 用于显示预览界面
+       * @param index 图片数组下标
+       */
+      function viewImg(index) {
+        //其它选项这里不做过多阐述，详情见官网
+        var pswpoptions = {
+          index: parseInt(index, 10), // 开始幻灯片索引。0是第一张幻灯片。必须是整数，而不是字符串。
+          bgOpacity: 0.7, // 背景透明度，0-1
+          maxSpreadZoom: 3, // 缩放级别，不要太大
+        }
+        //初始化并打开PhotoSwipe，pswpElement对应上面预览框架，PhotoSwipeUI_Default为皮肤，imgitems为图片数组，pswpoptions为选项
+        var gallery = new PhotoSwipe(
+          pswpElement,
+          PhotoSwipeUI_Default,
+          imgitems,
+          pswpoptions
+        )
+        gallery.init()
+      }
+      /**
+       * 用于添加图片点击事件
+       * @param img 图片元素
+       * @param index 所属下标（在imgitems中的位置）
+       */
+      function addImgClick(img, index) {
+        img.onclick = function () {
+          viewImg(index)
+        }
+      }
+      /**
+       * 轮询所有图片，获取src、width、height等数据，加入imgitems，并给图片元素添加事件
+       * 最好在onload中执行该方法，本站因放在最底部，所以直接初始化
+       * 异步加载图片可在图片元素创建完成后调用此方法
+       */
+      function initImg() {
+        //重置图片数组
+        imgitems = []
+        //查找class:markdown 下的所有img元素并遍历
+        var imgs = document.querySelectorAll('.markdown img')
+        for (var i = 0; i < imgs.length; i++) {
+          var img = imgs[i]
+          //本站相册初始为loading图片，真实图片放在data-src
+          var ds = img.getAttribute('data-src')
+          //创建image对象，用于获取图片宽高
+          var imgtemp = new Image()
+          //判断是否存在data-src
+          if (ds != null && ds.length > 0) {
+            imgtemp.src = ds
+          } else {
+            imgtemp.src = img.src
+          }
+          //判断是否存在缓存
+          if (imgtemp.complete) {
+            var imgobj = {
+              src: imgtemp.src,
+              w: imgtemp.width,
+              h: imgtemp.height,
+            }
+            imgitems[i] = imgobj
+            addImgClick(img, i)
+          } else {
+            console.log('进来了2')
+            imgtemp.index = i
+            imgtemp.img = img
+            imgtemp.onload = function () {
+              var imgobj = {
+                src: this.src,
+                w: this.width,
+                h: this.height,
+              }
+              //不要使用push，因为onload前后顺序会不同
+              imgitems[this.index] = imgobj
+              //添加点击事件
+              addImgClick(this.img, this.index)
+            }
+          }
+        }
+      }
+      //初始化
+      initImg()
+    </script>
+     
+  </body>
+</html>
