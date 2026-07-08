@@ -1,0 +1,363 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Arduino 安装 ESP32 开发工具链指南 -
+    David 的小窝</title>
+<link rel="shortcut icon" href="https://DavidJYL.github.io/favicon.ico" />
+<link
+  href="https://cdn.bili33.top/npm/remixicon@2.2.0/fonts/remixicon.css"
+  rel="stylesheet" />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdmirror.com/npm/animate.css@3.7.2/animate.min.css" />
+<link
+  rel="stylesheet"
+  href="https://DavidJYL.github.io/media/css/tailwind.css" />
+<link rel="stylesheet" href="https://DavidJYL.github.io/styles/main.css" />
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Arduino 安装 ESP32 开发工具链指南 -
+    David 的小窝 - Atom Feed"
+  href="https://DavidJYL.github.io/atom.xml" />
+
+
+
+    <meta name="description" content="Arduino 安装 ESP32 开发工具链指南
+本指南适用于在安装 ESP32 开发工具链时因无法高速稳定连接至 Github 而安装失败的情况。
+
+前置准备
+安装 Arduino CLI
+
+Arduino CLI 是一款一体化解决方案，..." />
+    <meta
+      property="og:title"
+      content="Arduino 安装 ESP32 开发工具链指南 - David 的小窝" />
+    <meta property="og:description" content="Arduino 安装 ESP32 开发工具链指南
+本指南适用于在安装 ESP32 开发工具链时因无法高速稳定连接至 Github 而安装失败的情况。
+
+前置准备
+安装 Arduino CLI
+
+Arduino CLI 是一款一体化解决方案，..." />
+    <meta property="og:type" content="articles" />
+    <meta property="og:url" content="https://DavidJYL.github.io/post/arduino_esp32_install/" />
+    <meta
+      property="og:image"
+      content="https://DavidJYL.github.io/images/avatar.png" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:width" content="1200" />
+    <meta
+      name="twitter:title"
+      content="Arduino 安装 ESP32 开发工具链指南 - David 的小窝" />
+    <meta name="twitter:description" content="Arduino 安装 ESP32 开发工具链指南
+本指南适用于在安装 ESP32 开发工具链时因无法高速稳定连接至 Github 而安装失败的情况。
+
+前置准备
+安装 Arduino CLI
+
+Arduino CLI 是一款一体化解决方案，..." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://DavidJYL.github.io/post/arduino_esp32_install/" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdmirror.com/npm/photoswipe@4.1.3/dist/photoswipe.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdmirror.com/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css" />
+
+    
+    <link
+      rel="stylesheet"
+      href="https://DavidJYL.github.io/media/css/prism-synthwave84.css" />
+     
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+    
+  </head>
+
+  <body>
+    <div class="antialiased flex flex-col min-h-screen" id="app">
+      <a
+        href="https://DavidJYL.github.io"
+        class="fixed top-0 left-0 mt-4 bg-black text-white dark:text-gray-700 dark:bg-yellow-50 dark:hover:bg-black dark:hover:text-white inline-flex p-2 pl-8 hover:text-gray-700 hover:bg-yellow-50 font-bold z-10 transition-fast animated fadeInLeft">
+        David 的小窝
+      </a>
+      <div class="max-w-4xl w-full mx-auto">
+        <div
+          class="shadow-box bg-white dark:bg-gray-600 rounded-lg pt-32 md:pt-64 px-4 md:px-8 pb-8 animated fadeIn mb-8">
+          <h1
+            class="text-5xl font-semibold leading-normal pb-8 mb-8 border-b-8 border-gray-700">
+            Arduino 安装 ESP32 开发工具链指南
+          </h1>
+          
+          <div class="mb-8 flex flex-wrap">
+            <div class="text-gray-400 text-sm mr-4">
+              2026-01-01 · 3 min read
+            </div>
+            
+          </div>
+          <div class="markdown mb-8" v-pre><h1 id="arduino-安装-esp32-开发工具链指南">Arduino 安装 ESP32 开发工具链指南</h1>
+<p>本指南适用于在安装 ESP32 开发工具链时因无法高速稳定连接至 Github 而安装失败的情况。</p>
+<!--more-->
+<h2 id="前置准备">前置准备</h2>
+<h3 id="安装-arduino-cli">安装 <a href="https://docs.arduino.cc/arduino-cli/">Arduino CLI</a></h3>
+<blockquote>
+<p>Arduino CLI 是一款一体化解决方案，提供板子/库管理器、草图构建器、板子检测、上传器以及许多其他工具，用于通过命令行或机器接口使用任何兼容 Arduino 的板子和平台。<br>
+除了作为独立工具外，Arduino CLI <strong>还是所有官方 Arduino 开发软件（Arduino IDE、Arduino 网页编辑器）的核心</strong>。本文档部分内容同样适用于这些工具。</p>
+<p>（摘自 Arduino 官网关于 Arduino CLI 的文档）</p>
+</blockquote>
+<p>如果已经安装 Arduino IDE，可以在 <code>Arduino IDE\resources\app\lib\backend\resources\</code> 目录下找到 Arduino CLI 本体（<code>arduino-cli.exe</code>），使用方法与作为独立工具相同。</p>
+<h3 id="可稳定从-github-下载的方式">可稳定从 Github 下载的方式</h3>
+<p>可以是镜像源（加速下载）或者加速工具，在 Arduino IDE 或 Arduino CLI 中直连无法获得好的下载体验并不代表无法使用这些下载方式。</p>
+<p>镜像源（加速下载）如 <a href="https://gh-proxy.com/">GitHub 文件加速代理</a>、<a href="https://fastgit.cc/">GitHub 文件加速</a>；加速工具如 <a href="https://github.com/creazyboyone/FastGithub/">FastGithub</a>（或 <a href="https://gitee.com/XingYuan55/FastGithub">Gitee 镜像</a>）、<a href="https://steampp.net/">Watt Toolkit</a>、<a href="https://github.com/521xueweihan/GitHub520/">GitHub520</a>（或 <a href="https://gitee.com/klmahuaw/GitHub520">Gitee 镜像</a>）。</p>
+<p>可使用多线程下载工具（如 <a href="https://neatdownloadmanager.com/index.php/en/">Neat Download Manager</a>）加速下载。</p>
+<h2 id="安装流程">安装流程</h2>
+<p>在命令行中运行 Arduino CLI，依次执行以下命令：</p>
+<pre><code class="language-powershell">arduino-cli config init
+arduino-cli core update-index
+</code></pre>
+<p>以初始化配置文件并更新核心索引（在 PowerShell 中须在 <code>arduino-cli</code> 前添加 <code>./</code>，或使用绝对路径）。</p>
+<p>（*）接下来执行：</p>
+<pre><code class="language-powershell">arduino-cli core install esp32:esp32
+</code></pre>
+<p>以安装 ESP32 核心（即 ESP32 开发工具链）。</p>
+<p>此时视网络情况，可能可以成功下载一些较小的包（如果能与 Github 建立连接），但是遇到较大的包时通常会连接超时或下载超时，此时我们就需要手动下载这些包并放置到 Arduino 的下载缓存文件夹下。</p>
+<p>当 Arduino CLI 下载失败报错时，阅读错误信息。如果错误信息中包含包的链接，那么直接通过别的途径下载即可；如果仅包含包名，则可以通过文本编辑器打开 Arduino 目录（通常为 <code>C:\Users\&lt;UserName&gt;\AppData\Local\Arduino15\</code>）下的 <code>package_index.json</code> 文件，在其中使用查找功能等找到包名（<code>archiveFileName</code> 键对应的值）及其对应的的包链接（<code>url</code> 键对应的值），然后从该链接通过别的途径下载对应的包。</p>
+<p>包下载完毕后，将其放置在与 Arduino CLI 一致的缓存目录（通常为 <code>C:\Users\&lt;UserName&gt;\AppData\Local\Arduino15\staging\packages\</code>）下，接下来回到（*）步骤，重复这个过程直到所有包都下载完毕。不用担心包可能损坏或对应错误，Arduino CLI 会通过 SHA-256 和包大小进行校验。</p>
+<p>所有包都下载完成后，再次回到（*）步骤，此时 Arduino CLI 在检查所有包都已下载完毕后会依次安装每个包，当看到 <code>Platform esp:esp32@A.B.C installed</code>（ESP32 平台安装完毕）时，恭喜你成功安装了开发 ESP32 所需的工具链！</p>
+</div>
+          <!-- Share to Twitter, Weibo, Telegram -->
+          <div class="flex items-center">
+            <div class="mr-4 flex items-center">
+              <i class="ri-share-forward-line text-gray-500"></i>
+            </div>
+            <div
+              class="px-4 cursor-pointer text-blue-500 hover:bg-blue-100 dark:hover:bg-gray-600 inline-flex"
+              @click="shareToTwitter">
+              <i class="ri-twitter-line"></i>
+            </div>
+            <div
+              class="px-4 cursor-pointer text-red-500 hover:bg-red-100 dark:hover:bg-gray-600 inline-flex"
+              @click="shareToWeibo">
+              <i class="ri-weibo-line"></i>
+            </div>
+            <div
+              class="px-4 cursor-pointer text-indigo-500 hover:bg-indigo-100 dark:hover:bg-gray-600 inline-flex"
+              @click="shareToTelegram">
+              <i class="ri-telegram-line"></i>
+            </div>
+          </div>
+        </div>
+
+          <footer class="py-12 text-center px-4 md:px-0" v-pre>
+  <a href="https://github.com/DavidJYL" target="_blank">Github</a> | <a href="https://gitee.com/Jiang-Yulin-David" target="_blank">Gitee</a> | <a href="https://blog.csdn.net/qq_66162895" target="_blank">CSDN</a> | <a href="https://space.bilibili.com/1753083526" target="_blank">bilibili</a>
+</footer>
+
+      </div>
+
+      <!-- TOC Container -->
+      <div
+        class="fixed right-0 bottom-0 mb-16 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white dark:bg-gray-500 dark:text-gray-200 hover:shadow-lg transition-all animated fadeInRight"
+        @click="showToc = true">
+        <i class="ri-file-list-line"></i>
+      </div>
+
+      <div
+        class="fixed right-0 top-0 bottom-0 overflow-y-auto w-64 bg-white dark:bg-gray-800 p-4 border-l border-gray-100 dark:border-gray-600 z-10 transition-fast"
+        :class="{ '-mr-64': !showToc }">
+        <div class="flex mb-4 justify-end">
+          <div
+            class="w-8 h-8 inline-flex justify-center items-center rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 transition-fast"
+            @click="showToc = false">
+            <i class="ri-close-line text-lg"></i>
+          </div>
+        </div>
+        <div class="post-toc-container"><ul class="markdownIt-TOC">
+<li><a href="#arduino-%E5%AE%89%E8%A3%85-esp32-%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E9%93%BE%E6%8C%87%E5%8D%97">Arduino 安装 ESP32 开发工具链指南</a>
+<ul>
+<li><a href="#%E5%89%8D%E7%BD%AE%E5%87%86%E5%A4%87">前置准备</a>
+<ul>
+<li><a href="#%E5%AE%89%E8%A3%85-arduino-cli">安装 Arduino CLI</a></li>
+<li><a href="#%E5%8F%AF%E7%A8%B3%E5%AE%9A%E4%BB%8E-github-%E4%B8%8B%E8%BD%BD%E7%9A%84%E6%96%B9%E5%BC%8F">可稳定从 Github 下载的方式</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%89%E8%A3%85%E6%B5%81%E7%A8%8B">安装流程</a></li>
+</ul>
+</li>
+</ul>
+</div>
+      </div>
+
+      <!-- Back to top -->
+      <div
+        class="fixed right-0 bottom-0 mb-4 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white hover:shadow-lg transition-all dark:bg-gray-500 dark:text-gray-200"
+        @click="backToUp"
+        v-show="scrolled">
+        <i class="ri-arrow-up-line"></i>
+      </div>
+    </div>
+
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- Background of PhotoSwipe.
+        It's a separate element as animating opacity is faster than rgba(). -->
+  <div class="pswp__bg"></div>
+  <!-- Slides wrapper with overflow:hidden. -->
+  <div class="pswp__scroll-wrap">
+    <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar">
+        <!--  Controls are self-explanatory. Order can be changed. -->
+        <div class="pswp__counter"></div>
+        <button
+          class="pswp__button pswp__button--close"
+          title="Close (Esc)"></button>
+        <button
+          class="pswp__button pswp__button--fs"
+          title="Toggle fullscreen"></button>
+        <button
+          class="pswp__button pswp__button--zoom"
+          title="Zoom in/out"></button>
+        <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+        <!-- element will get class pswp__preloader--active when preloader is running -->
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+        <div class="pswp__share-tooltip"></div>
+      </div>
+      <button
+        class="pswp__button pswp__button--arrow--left"
+        title="Previous (arrow left)"></button>
+      <button
+        class="pswp__button pswp__button--arrow--right"
+        title="Next (arrow right)"></button>
+      <div class="pswp__caption">
+        <div class="pswp__caption__center"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <script src="https://cdn.jsdmirror.com/npm/vue@2.7.14/dist/vue.min.js"></script>
+    <script src="https://DavidJYL.github.io/media/scripts/main.js"></script>
+
+    <!-- Code Highlight -->
+    
+    <script src="https://DavidJYL.github.io/media/prism.js"></script>
+    <script>
+      Prism.highlightAll()
+    </script>
+    
+
+    <script src="https://cdn.jsdmirror.com/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+    <script src="https://cdn.jsdmirror.com/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+    <script>
+      //拿到预览框架，也就是上面的html代码
+      var pswpElement = document.querySelectorAll('.pswp')[0]
+      //定义图片数组变量
+      var imgitems
+      /**
+       * 用于显示预览界面
+       * @param index 图片数组下标
+       */
+      function viewImg(index) {
+        //其它选项这里不做过多阐述，详情见官网
+        var pswpoptions = {
+          index: parseInt(index, 10), // 开始幻灯片索引。0是第一张幻灯片。必须是整数，而不是字符串。
+          bgOpacity: 0.7, // 背景透明度，0-1
+          maxSpreadZoom: 3, // 缩放级别，不要太大
+        }
+        //初始化并打开PhotoSwipe，pswpElement对应上面预览框架，PhotoSwipeUI_Default为皮肤，imgitems为图片数组，pswpoptions为选项
+        var gallery = new PhotoSwipe(
+          pswpElement,
+          PhotoSwipeUI_Default,
+          imgitems,
+          pswpoptions
+        )
+        gallery.init()
+      }
+      /**
+       * 用于添加图片点击事件
+       * @param img 图片元素
+       * @param index 所属下标（在imgitems中的位置）
+       */
+      function addImgClick(img, index) {
+        img.onclick = function () {
+          viewImg(index)
+        }
+      }
+      /**
+       * 轮询所有图片，获取src、width、height等数据，加入imgitems，并给图片元素添加事件
+       * 最好在onload中执行该方法，本站因放在最底部，所以直接初始化
+       * 异步加载图片可在图片元素创建完成后调用此方法
+       */
+      function initImg() {
+        //重置图片数组
+        imgitems = []
+        //查找class:markdown 下的所有img元素并遍历
+        var imgs = document.querySelectorAll('.markdown img')
+        for (var i = 0; i < imgs.length; i++) {
+          var img = imgs[i]
+          //本站相册初始为loading图片，真实图片放在data-src
+          var ds = img.getAttribute('data-src')
+          //创建image对象，用于获取图片宽高
+          var imgtemp = new Image()
+          //判断是否存在data-src
+          if (ds != null && ds.length > 0) {
+            imgtemp.src = ds
+          } else {
+            imgtemp.src = img.src
+          }
+          //判断是否存在缓存
+          if (imgtemp.complete) {
+            var imgobj = {
+              src: imgtemp.src,
+              w: imgtemp.width,
+              h: imgtemp.height,
+            }
+            imgitems[i] = imgobj
+            addImgClick(img, i)
+          } else {
+            console.log('进来了2')
+            imgtemp.index = i
+            imgtemp.img = img
+            imgtemp.onload = function () {
+              var imgobj = {
+                src: this.src,
+                w: this.width,
+                h: this.height,
+              }
+              //不要使用push，因为onload前后顺序会不同
+              imgitems[this.index] = imgobj
+              //添加点击事件
+              addImgClick(this.img, this.index)
+            }
+          }
+        }
+      }
+      //初始化
+      initImg()
+    </script>
+     
+  </body>
+</html>
